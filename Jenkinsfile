@@ -9,11 +9,6 @@ node {
         app = docker.build("saberdocker/liberty:latest")
     }
 
-    stage('Test image') {
-        app.inside {
-             sh 'echo "Tests passed" '
-        }
-    }
  
     stage('Push image') {
        docker.withRegistry('https://registry.hub.docker.com', 'jenkinshub') {
